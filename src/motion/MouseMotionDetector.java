@@ -47,7 +47,7 @@ public class MouseMotionDetector implements MouseListener, MotionDetector {
 		
 		System.out.println("Sending " + startX + " " + endX + " " + startY + " " + endY);
 		
-		screen.processMotion(startX, endX, startY, endY);
+		//screen.processMotion(startX, endX, startY, endY);
 		
 		screen.repaint();
 	}

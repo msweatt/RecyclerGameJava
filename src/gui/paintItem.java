@@ -12,10 +12,10 @@ public class paintItem extends JPanel{
 		this.item=_item;
 	}
 
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		g.setColor(Color.blue);
-		g.drawRect(item.getX(), item.getY(), item.getWidth(), item.getHeight());
+	public void paintComponent(Graphics _g) {
+		super.paintComponent(_g);
+		_g.setColor(Color.blue);
+		_g.drawRect(item.getX(), item.getY(), item.getWidth(), item.getHeight());
 	}
 
 }

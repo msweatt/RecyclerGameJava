@@ -16,6 +16,7 @@ public class Item {
 	public int getY(){return y;}
 	public int getHeight(){return height;}
 	public int getWidth(){return width;}
+	
 	public void init(){}
 	public void update(int _x,int _y){
 		x=_x;

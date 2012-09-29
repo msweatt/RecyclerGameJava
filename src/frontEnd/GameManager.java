@@ -10,24 +10,32 @@ import util.Global;
 
 public class GameManager {
 	private GameScreen screen;
-	ArrayList<Item> items = new ArrayList<Item>();
+	private ArrayList<Item> items = new ArrayList<Item>();
+	private ArrayList<Bin> bins = new ArrayList<Bin>();
+	private Arm arm;
+	private Conveyer conveyer;
+	private Scheduler scheduler;
+	private int highScore;
 	
 	public GameManager(){
-		screen = new GameScreen(this);;
+		screen = new GameScreen();;
 	}
-	
 	public GameScreen getScreen(){
 		return screen;
 	}
-	
-	public void addItem(Item item){
-		items.add(item);
+	private void addItem(Item _item){
+		items.add(_item);
+	}
+	private void addBin(Bin _bin){
+		bins.add(_bin);
 	}
 	
 	public void processMotion()	{
 		System.out.println("Processing motion...");
 		
 	}
+	public void update(){}
+	
 	
 	public static void main(String[] args){
 		GameManager game = new GameManager();
@@ -35,5 +43,4 @@ public class GameManager {
 		MotionDetector detector = new MouseMotionDetector(screen);
 		
 	}
-
 }

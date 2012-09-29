@@ -3,6 +3,7 @@ package gui;
 import frontEnd.GameManager;
 import frontEnd.Item;
 import util.Global;
+import gui.paintItem;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -11,14 +12,11 @@ import javax.swing.JFrame;
 import motion.MouseMotionDetector;
 
 
-public class GameScreen extends JFrame{
+public class GameScreen extends JFrame {
 	private JFrame frame;
-	private GameManager game;
 	private Global global;
 	
-	public GameScreen(GameManager game)
-	{
-		this.game = game;
+	public GameScreen() {
 		frame = new JFrame();
 		frame.setSize(global.xResolution,global.yResolution);
 		frame.setVisible(true);
@@ -31,17 +29,12 @@ public class GameScreen extends JFrame{
 	}
 	
 	
-	public void paintObject(Item item) {
+	public void paintObject(Item _item) {
 		// TODO Auto-generated method stub
-	    //frame.add(new PaintableItem(i));
-	}
-
-	public void processMotion(int startX, int endX, int startY, int endY) {
-		//game.processMotion(startX, endX, startY, endY);
+	    //frame.add(new PaintableItem(_item));
 	}
 	
-	public void repaint()
-	{
+	public void repaint() {
 		frame.repaint();
 	}
 
