@@ -5,17 +5,18 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 import frontEnd.Item;
 
-public class PaintableItem extends JPanel{
+public class PaintableItem extends JPanel {
+	
 	private Item item;
 	
-	public PaintableItem(Item _item) {
-		this.item=_item;
+	public PaintableItem(Item item) {
+		this.item = item;
 	}
 
-	public void paintComponent(Graphics _g) {
-		super.paintComponent(_g);
-		_g.setColor(Color.blue);
-		_g.drawRect(item.getX(), item.getY(), item.getWidth(), item.getHeight());
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(Color.blue);
+		g.drawRect(item.getX(), item.getY(), item.getWidth(), item.getHeight());
 	}
 
 }

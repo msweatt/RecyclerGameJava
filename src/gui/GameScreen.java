@@ -12,13 +12,14 @@ import frontEnd.Item;
 
 
 public class GameScreen extends JFrame {
+	
 	private JFrame frame;
 	private GameManager game;
 	
 	public GameScreen(GameManager game) {
 		frame = new JFrame();
 		this.game = game;
-		frame.setSize(Global.xResolution,Global.yResolution);
+		frame.setSize(Global.xResolution, Global.yResolution);
 		frame.setVisible(true);
 	    frame.addWindowListener(new WindowAdapter() {
 	        public void windowClosing(WindowEvent e) {
@@ -32,9 +33,9 @@ public class GameScreen extends JFrame {
 		game.processMotion(startX, endX, startY, endY);
 	}
 	
-	public void paintObject(Item _item) {
+	public void paintObject(Item item) {
 		// TODO Auto-generated method stub
-	    frame.add(new PaintableItem(_item));
+	    frame.add(new PaintableItem(item));
 	}
 	
 	public void repaint() {

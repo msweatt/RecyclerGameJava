@@ -8,11 +8,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class MouseMotionDetector implements MouseListener, MotionDetector {
+	
 	private GameScreen screen;
 	private int startX, startY, endX, endY;
 	
-	public MouseMotionDetector(GameScreen screen)
-	{
+	public MouseMotionDetector(GameScreen screen) {
 		this.screen = screen;
 	}
 

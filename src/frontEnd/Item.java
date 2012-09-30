@@ -3,26 +3,39 @@ package frontEnd;
 import util.Global;
 
 public class Item {
+	
 	private int x,y;
 	private int height,width;
 	private int image;
 	
-	public Item(int _image, int _height, int _width){
-		image=_image;
-		height=_height;
-		width=_width;
-		
-		//x = 50;
-		//y = 50;
+	public Item(int image, int height, int width) {
+		this.image = image;
+		this.height = height;
+		this.width = width;
 	}
-	public int getX(){return x;}
-	public int getY(){return y;}
-	public int getHeight(){return height;}
-	public int getWidth(){return width;}
 	
-	public void init(){}
-	public void update(int _x,int _y){
-		x=_x;
-		y=_y;
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public void init() {
+		
+	}
+	
+	public void update(int x, int y){
+		this.x = x;
+		this.y = y;
 	}
 }
