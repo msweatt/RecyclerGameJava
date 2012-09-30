@@ -11,6 +11,9 @@ public class Item {
 		image=_image;
 		height=_height;
 		width=_width;
+		
+		//x = 50;
+		//y = 50;
 	}
 	public int getX(){return x;}
 	public int getY(){return y;}

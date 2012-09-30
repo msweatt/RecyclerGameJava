@@ -27,6 +27,7 @@ public class GameScreen extends JFrame {
 	      });
 	    frame.addMouseListener(new MouseMotionDetector(this));
 	}
+	
 	public void processMotion(int startX, int endX, int startY, int endY) {
 		game.processMotion(startX, endX, startY, endY);
 	}

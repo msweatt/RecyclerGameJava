@@ -2,6 +2,7 @@ package frontEnd;
 
 import gui.GameScreen;
 import java.util.ArrayList;
+
 import motion.MotionDetector;
 import motion.MouseMotionDetector;
 import frontEnd.Item;
@@ -60,5 +61,6 @@ public class GameManager {
 		GameManager game = new GameManager();
 		GameScreen screen = game.getScreen();
 		MotionDetector detector = new MouseMotionDetector(screen);
+		game.addItem(new Item(20,20 ,20));
 	}
 }
