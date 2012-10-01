@@ -42,7 +42,7 @@ public class GameManager {
 		for(Item i : items)
 		{
 			int x = i.getX();
-			System.out.println(x);
+			System.out.println("itemX="+x);
 			if(x > startX && x < endX)
 			{
 				System.out.println("Moving1!");
@@ -66,7 +66,8 @@ public class GameManager {
 		GameManager game = new GameManager();
 		GameScreen screen = game.getScreen();
 		MotionDetector detector = new MouseMotionDetector(screen);
-		game.addItem(new Item(20,20 ,20));
+		
+		game.addItem(new Item(25,25,25,25));
 	}
 	
 }

@@ -13,6 +13,25 @@ public class Item {
 		this.height = height;
 		this.width = width;
 	}
+	public Item(int minX,int maxX,int minY,int maxY){
+		this.x = minX + (int)(Math.random()*(maxX-minX+1));
+		this.y = minY + (int)(Math.random()*(maxY-minY+1));
+		
+		this.width=25;
+		this.height=25;
+		
+		
+		System.out.println("minX="+minX);
+		System.out.println("maxX="+maxX);
+		System.out.println("minY="+minY);
+		System.out.println("maxY="+maxY);
+		System.out.println("x="+x);
+		System.out.println("y="+y);
+		System.out.println("width="+this.width);
+		System.out.println("height="+this.height);
+		
+		this.y = 150;
+	}
 	
 	public int getX() {
 		return x;
