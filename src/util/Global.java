@@ -1,6 +1,6 @@
 package util;
 
-public class Global{
+public class Global {
 	
 	public static final int xResolution = 600;
 	public static final int yResolution = 600;
