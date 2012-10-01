@@ -50,12 +50,15 @@ public class Item {
 	public void init() {
 		
 	}
+	
 	public static void update(){
 		y=y+Global.itemMoveY;
 		System.out.println("y="+y);
 	}
+	
 	public void update(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
+	
 }
