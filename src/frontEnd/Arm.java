@@ -3,15 +3,13 @@ package frontEnd;
 import util.Global;
 
 public class Arm {
-	
-	private Global global;
 	private int xPos, yPos, direction, velocity;
 	public int image;
 	
 	public Arm() {
-		xPos = global.xResolution / 2;
-		yPos = global.yResolution / 2;
-		direction = global.left;
+		xPos = Global.screenX / 2;
+		yPos = Global.screenY/ 2;
+		direction = Global.left;
 	}
 	
 	public void init(){

@@ -19,7 +19,7 @@ public class GameScreen extends JFrame {
 	public GameScreen(GameManager game) {
 		frame = new JFrame();
 		this.game = game;
-		frame.setSize(Global.xResolution, Global.yResolution);
+		frame.setSize(Global.screenX, Global.screenY);
 		frame.setVisible(true);
 	    frame.addWindowListener(new WindowAdapter() {
 	        public void windowClosing(WindowEvent e) {
