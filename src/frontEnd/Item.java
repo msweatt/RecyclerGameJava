@@ -51,7 +51,7 @@ public class Item {
 		
 	}
 	public static void update(){
-		y=y+1;
+		y=y+Global.itemMoveY;
 		System.out.println("y="+y);
 	}
 	public void update(int x, int y){

@@ -14,9 +14,10 @@ public class Global {
 	public static final int itemHeight=50;
 	public static final int itemStartX = screenX/2-itemWidth;
 	public static final int itemStartY=10;
+	public static final int itemMoveY=5;
 	
 	
-	public static final int delay = 200;
+	public static final int delay = 250;
 	
 	public static final int conveyerStartSpeed = 5;
 	

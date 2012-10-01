@@ -23,7 +23,7 @@ public class GameManager {
 	
 	public GameManager() {
 		screen = new GameScreen(this);
-		//scheduler= new Scheduler(this);
+		scheduler= new Scheduler(this);
 	}
 	
 	public GameScreen getScreen() {
@@ -66,8 +66,9 @@ public class GameManager {
 	}
 	
 	public static void update() {
-		//items.get(0).update();
-		//scheduler.update();
+		System.out.println("GameManager Update");
+		items.get(0).update();
+		
 	}
 	
 	public static void main(String[] args) {
@@ -78,11 +79,21 @@ public class GameManager {
 		game.addItem(new Item());
 		
 		 
-		
-		while(true){
-			update();
+		int count=0;
+		int yPos=0;
+		while(yPos<400 && items.get(0).getX()==Global.itemStartX){
+			scheduler.update();
+			count++;
+			yPos=items.get(0).getY();
 		}
+		System.out.println("x="+items.get(0).getX());
+		System.out.println("x="+items.get(0).getY());
 		
+		if(items.get(0).getX()!=Global.itemStartX)
+			System.out.println("You win!");
+		if(items.get(0).getY()>=400)
+			System.out.println("You loose..");
+			
 	}
 	
 }
