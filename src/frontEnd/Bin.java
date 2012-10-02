@@ -12,8 +12,8 @@ public class Bin {
 	private int height;
 	
 	public Bin(int x, int y, int w, int h) {
-		x = x;
-		y = y;
+		this.x = x;
+		this.y = y;
 		width = w;
 		height = h;
 	}

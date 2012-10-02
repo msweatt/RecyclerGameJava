@@ -9,7 +9,7 @@ public class Item {
 	
 	private final static Logger _log = Logger.getLogger(Item.class.getName());
 	
-	private int xCoord,y;
+	private int xCoord, yCoord;
 	private int height,width;
 	private int image;
 	
@@ -24,7 +24,7 @@ public class Item {
 		this.width=GameConstants.ITEM_WIDTH;
 		this.height=GameConstants.ITEM_HEIGHT;
 		this.xCoord=GameConstants.ITEM_START_X_POS;
-		this.y=GameConstants.ITEM_START_Y_POS;
+		this.yCoord=GameConstants.ITEM_START_Y_POS;
 		
 		
 		//_log.info("minX="+minX);
@@ -32,7 +32,7 @@ public class Item {
 		//_log.info("minY="+minY);
 		//_log.info("maxY="+maxY);
 		if( LoggerConstants.isFine() ) _log.fine("x="+xCoord);
-		if( LoggerConstants.isFine() ) _log.fine("y="+y);
+		if( LoggerConstants.isFine() ) _log.fine("y="+yCoord);
 		if( LoggerConstants.isFine() ) _log.fine("width="+this.width);
 		if( LoggerConstants.isFine() ) _log.fine("height="+this.height);
 	}
@@ -42,7 +42,7 @@ public class Item {
 	}
 	
 	public int getY() {
-		return y;
+		return yCoord;
 	}
 	
 	public int getHeight() {
@@ -58,14 +58,14 @@ public class Item {
 	}
 	
 	public void update(){
-		y = y + GameConstants.ITEM_MOVE_Y;
-		if( LoggerConstants.isFine() ) _log.fine("y="+y);
+		yCoord = yCoord + GameConstants.ITEM_MOVE_Y;
+		if( LoggerConstants.isFine() ) _log.fine("y="+yCoord);
 		
 	}
 	
 	public void update(int x, int y){
 		this.xCoord = x;
-		this.y = y;
+		this.yCoord = y;
 	}
 	
 }

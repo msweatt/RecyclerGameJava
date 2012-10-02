@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Point;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Logger;
@@ -19,7 +20,6 @@ public class GameScreen extends JFrame {
 	private GameManager game;
 	
 	public GameScreen(GameManager game, ScoreBoard scoreBoard) {
-		//super();// = new JFrame();
 		this.game = game;
 		this.setSize(GameConstants.SCREEN_X_SIZE, GameConstants.SCREEN_Y_SIZE);
 		this.setVisible(true);
@@ -32,12 +32,11 @@ public class GameScreen extends JFrame {
 	    this.add(scoreBoard);   
 	}
 	
-	public void processMotion(int startX, int endX, int startY, int endY) {
-		game.processMotion(startX, endX, startY, endY);
+	public void processMotion(Point startPoint, Point endPoint) {
+		game.processMotion(startPoint, endPoint);
 	}
 	
 	public void paintObject(Item item) {
-		// TODO Auto-generated method stub
 	    this.add(new PaintableItem(item));
 	}
 	

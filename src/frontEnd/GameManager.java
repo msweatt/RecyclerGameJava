@@ -3,6 +3,7 @@ package frontEnd;
 import gui.GameScreen;
 import gui.ScoreBoard;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
@@ -65,7 +66,12 @@ public class GameManager {
 		//-----------------------------------------------------------------------//
 	}
 	
-	public void processMotion(int startX, int endX, int startY, int endY) {
+	public void processMotion(Point startPoint, Point endPoint) {
+		double startX = startPoint.getX();
+		double startY = startPoint.getY();
+		double endX = endPoint.getX();
+		double endY = endPoint.getY();
+		
 		if( LoggerConstants.isInfo() ) _log.info("Processing motion...");
 		int x, y;
 		for(Item i : items)
