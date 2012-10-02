@@ -19,7 +19,7 @@ public class GameScreen extends JFrame {
 	
 	private GameManager game;
 	
-	public GameScreen(GameManager game) {
+	public GameScreen(GameManager game, ScoreBoard scoreBoard) {
 		//super();// = new JFrame();
 		this.game = game;
 		this.setSize(GameConstants.SCREEN_X_SIZE, GameConstants.SCREEN_Y_SIZE);
@@ -30,6 +30,7 @@ public class GameScreen extends JFrame {
 	        }
 	      });
 	    this.addMouseListener(new MouseMotionDetector(this));
+	    this.add(scoreBoard);
 	    
 	}
 	

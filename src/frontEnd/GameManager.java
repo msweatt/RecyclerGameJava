@@ -1,6 +1,8 @@
 package frontEnd;
 
 import gui.GameScreen;
+import gui.ScoreBoard;
+
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
@@ -24,9 +26,13 @@ public class GameManager {
 	private Conveyer conveyer;
 	private static Scheduler scheduler;
 	private int highScore;
+	private ScoreKeeper scoreKeeper;
+	private ScoreBoard scoreBoard;
 	
 	public GameManager() {
-		screen = new GameScreen(this);
+		scoreKeeper = new ScoreKeeper("Player1");
+		scoreBoard = new ScoreBoard(scoreKeeper);
+		screen = new GameScreen(this, scoreBoard);
 		scheduler= new Scheduler(this);
 	}
 	
