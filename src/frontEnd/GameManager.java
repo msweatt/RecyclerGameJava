@@ -103,7 +103,11 @@ public class GameManager {
 		if( LoggerConstants.isFinest() ) _log.finest("GameManager Update");
 		
 		for (int i = 0; i < items.size(); i++) {
-			items.get(i).update();
+			if(items.get(i).getX()==GameConstants.ITEM_START_X_POS){
+				if(items.get(i).getY()<GameConstants.CONVEYOR_END_POS){
+					items.get(i).update();
+				}
+			}
 		}
 		screen.repaint();
 	}
@@ -134,6 +138,11 @@ public class GameManager {
 			}
 			
 			// if an item is in the bin (past the line) remove it from the array and decrement the score
+			
+			if(items.get(0).getX()!= GameConstants.ITEM_START_X_POS){
+				items.remove(0);
+			}
+			
 			if (items.get(0).getY() >= 400) {
 				items.remove(0);
 				game.scoreKeeper.addPoints(-1);
