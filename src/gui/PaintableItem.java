@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 import util.GameConstants;
-import frontEnd.Arm;
 import frontEnd.Item;
 
 // TODO:
@@ -27,7 +26,7 @@ public class PaintableItem extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.setColor(Color.blue);
-		g.drawRect(item.getX(), item.getY(), item.getWidth(), item.getHeight());
+		g.drawRect((int)item.getX(), (int)item.getY(), item.getWidth(), item.getHeight());
 		g.drawLine(180, GameConstants.CONVEYOR_END_POS, 400, GameConstants.CONVEYOR_END_POS);
 	}
 

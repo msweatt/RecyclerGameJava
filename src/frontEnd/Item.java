@@ -1,5 +1,6 @@
 package frontEnd;
 
+import java.awt.Point;
 import java.util.logging.Logger;
 
 import util.GameConstants;
@@ -9,9 +10,9 @@ public class Item {
 	
 	private final static Logger _log = Logger.getLogger(Item.class.getName());
 	
-	private int xCoord, yCoord;
 	private int height,width;
 	private int image;
+	private Point itemPoint;
 	
 	public Item(int image, int height, int width) {
 		this.image = image;
@@ -19,30 +20,31 @@ public class Item {
 		this.width = width;
 	}
 	
-	//public Item(int minX,int maxX,int minY,int maxY){
 	public Item(){
 		this.width=GameConstants.ITEM_WIDTH;
 		this.height=GameConstants.ITEM_HEIGHT;
-		this.xCoord=GameConstants.ITEM_START_X_POS;
-		this.yCoord=GameConstants.ITEM_START_Y_POS;
 		
+		this.itemPoint = new Point(GameConstants.ITEM_START_X_POS, GameConstants.ITEM_START_Y_POS);
 		
-		//_log.info("minX="+minX);
-		//_log.info("maxX="+maxX);
-		//_log.info("minY="+minY);
-		//_log.info("maxY="+maxY);
-		if( LoggerConstants.isFine() ) _log.fine("x="+xCoord);
-		if( LoggerConstants.isFine() ) _log.fine("y="+yCoord);
-		if( LoggerConstants.isFine() ) _log.fine("width="+this.width);
-		if( LoggerConstants.isFine() ) _log.fine("height="+this.height);
+		if( LoggerConstants.isFine() ) 
+			_log.fine("x="+itemPoint.getX());
+		if( LoggerConstants.isFine() ) 
+			_log.fine("y="+itemPoint.getY());
+		if( LoggerConstants.isFine() ) 
+			_log.fine("width="+this.width);
+		if( LoggerConstants.isFine() )
+			_log.fine("height="+this.height);
 	}
 	
-	public int getX() {
-		return xCoord;
+	public Point getPoint() {
+		return itemPoint;
+	}
+	public double getX() {
+		return itemPoint.getX();
 	}
 	
-	public int getY() {
-		return yCoord;
+	public double getY() {
+		return itemPoint.getY();
 	}
 	
 	public int getHeight() {
@@ -58,14 +60,14 @@ public class Item {
 	}
 	
 	public void update(){
-		yCoord = yCoord + GameConstants.ITEM_MOVE_Y;
-		if( LoggerConstants.isFine() ) _log.fine("y="+yCoord);
+		itemPoint.setLocation(itemPoint.getX(), itemPoint.getY() + GameConstants.ITEM_MOVE_Y);
+		if( LoggerConstants.isFine() ) 
+			_log.fine("y="+itemPoint.getY());
 		
 	}
 	
-	public void update(int x, int y){
-		this.xCoord = x;
-		this.yCoord = y;
+	public void update(double x, double y){
+		itemPoint.setLocation(x, y);
 	}
 	
 }

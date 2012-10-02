@@ -52,8 +52,8 @@ public class GameManager {
 	}
 	
 	private void binTracking(Item item){
-		int x = item.getX();
-		int y = item.getY();
+		double x = item.getX();
+		double y = item.getY();
 		//This section of code will not be placed here... this is only for testing//
 				if ( (y >= 0) && (y <200) ) {
 					
@@ -73,7 +73,7 @@ public class GameManager {
 		double endY = endPoint.getY();
 		
 		if( LoggerConstants.isInfo() ) _log.info("Processing motion...");
-		int x, y;
+		double x, y;
 		for(Item i : items)
 		{
 			y = i.getY() + (i.getHeight() / 2);
@@ -135,7 +135,7 @@ public class GameManager {
 			screen.repaint();
 			scheduler.update();
 		
-			int yPos = items.get(items.size() - 1).getY();
+			double yPos = items.get(items.size() - 1).getY();
 			
 			// if the newest item is past the 100 down y position create a new item
 			if (yPos >= GameConstants.NEW_ITEM_THRESHOLD) {

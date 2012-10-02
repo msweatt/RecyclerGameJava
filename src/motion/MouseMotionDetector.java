@@ -1,8 +1,5 @@
 package motion;
 
-
-import frontEnd.Arm;
-import frontEnd.GameManager;
 import gui.GameScreen;
 
 import java.awt.Point;
@@ -15,7 +12,6 @@ import util.LoggerConstants;
 public class MouseMotionDetector implements MouseListener, MotionDetector {
 	
 	private final static Logger _log = Logger.getLogger(MouseMotionDetector.class.getName());
-	
 	
 	private GameScreen screen;
 	private Point startPoint;
@@ -51,7 +47,8 @@ public class MouseMotionDetector implements MouseListener, MotionDetector {
 	public void mouseReleased(MouseEvent arg0) {
 		endPoint = new Point(arg0.getX(), arg0.getY());
 		
-		if( LoggerConstants.isFine() ) _log.fine("Sending " + startPoint.getX() + " " + endPoint.getX() + " " + startPoint.getY() + " " + endPoint.getY());
+		if( LoggerConstants.isFine() ) 
+			_log.fine("Sending " + startPoint.getX() + " " + endPoint.getX() + " " + startPoint.getY() + " " + endPoint.getY());
 		
 		screen.processMotion(startPoint, endPoint);
 		
