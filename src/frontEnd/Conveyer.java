@@ -1,15 +1,19 @@
 package frontEnd;
 
-import util.Global;
+import java.util.logging.Logger;
+
+import util.GameConstants;
 
 public class Conveyer {
 	
-	private Global global;
+	private final static Logger _log = Logger.getLogger(Conveyer.class.getName());
+	
+	private GameConstants global;
 	private int speed;
 	private int image;
 	
 	public Conveyer() {
-		speed = global.conveyerStartSpeed; 
+		speed = global.CONVEYOR_START_SPEED; 
 	}
 	
 	public int getSpeed() {

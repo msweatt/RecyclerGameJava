@@ -1,15 +1,22 @@
 package frontEnd;
 
-import util.Global;
+import util.GameConstants;
+import java.util.logging.Logger;
 
 public class Arm {
-	private int xPos, yPos, direction, velocity;
+	
+	private final static Logger _log = Logger.getLogger(Arm.class.getName());
+	
+	private int xPos;
+	private int yPos;
+	private int direction;
+	private int velocity;
 	public int image;
 	
 	public Arm() {
-		xPos = Global.screenX / 2;
-		yPos = Global.screenY/ 2;
-		direction = Global.left;
+		xPos = GameConstants.SCREEN_X_SIZE / 2;
+		yPos = GameConstants.SCREEN_Y_SIZE/ 2;
+		direction = GameConstants.left;
 	}
 	
 	public void init(){

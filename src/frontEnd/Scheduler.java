@@ -3,13 +3,18 @@ package frontEnd;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Logger;
 
-import util.Global;
+import util.GameConstants;
 
 import frontEnd.GameManager;
 import gui.GameScreen;
 
 public class Scheduler {
+	
+	private final static Logger _log = Logger.getLogger(Scheduler.class.getName());
+	
+	
 	static long time1,time2;
 	static GameManager gameManager;
 	static GameScreen gameScreen;
@@ -19,24 +24,24 @@ public class Scheduler {
 	public Scheduler(GameManager _gameManager){
 		gameManager=_gameManager;
 		time1 = new Date().getTime();
-		//System.out.println("Date() - Time in milliseconds: " + time1);
+		//_log.info("Date() - Time in milliseconds: " + time1);
 	}
 	
 	public static void update(){
-		System.out.println("Scheduler Update");
-		System.out.println("time1="+time1);
+		_log.info("Scheduler Update");
+		_log.info("time1="+time1);
 		
 		time2=new Date().getTime();
-		System.out.println("time2="+time2);
-		if(time2>time1+Global.delay){
-			System.out.println("Updating");
+		_log.info("time2="+time2);
+		if(time2>time1+GameConstants.DELAY){
+			_log.info("Updating");
 			gameManager.update();
 			time1=time2;
 			printTime2=true;
 		}else {
 			if(printTime2){
-				//System.out.println("time2="+time2);
-				System.out.println("NotTime");
+				//_log.info("time2="+time2);
+				_log.info("NotTime");
 				printTime2=false;
 			}
 		}
