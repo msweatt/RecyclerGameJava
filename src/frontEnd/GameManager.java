@@ -13,7 +13,7 @@ import util.Global;
 
 public class GameManager {
 	
-	private GameScreen screen;
+	private static GameScreen screen;
 	private static ArrayList<Item> items = new ArrayList<Item>();
 	private ArrayList<Bin> bins = new ArrayList<Bin>();
 	private Arm arm;
@@ -68,20 +68,25 @@ public class GameManager {
 	public static void update() {
 		System.out.println("GameManager Update");
 		items.get(0).update();
+		screen.repaint();
 		
 	}
 	
 	public static void main(String[] args) {
 		GameManager game = new GameManager();
-		GameScreen screen = game.getScreen();
+		
 		MotionDetector detector = new MouseMotionDetector(screen);
 		
 		game.addItem(new Item());
+		
+		screen.setVisible(true);
+		screen.repaint();
 		
 		 
 		int count=0;
 		int yPos=0;
 		while(yPos<400 && items.get(0).getX()==Global.itemStartX){
+			screen.repaint();
 			scheduler.update();
 			count++;
 			yPos=items.get(0).getY();

@@ -7,10 +7,12 @@ import java.util.Date;
 import util.Global;
 
 import frontEnd.GameManager;
+import gui.GameScreen;
 
 public class Scheduler {
 	static long time1,time2;
 	static GameManager gameManager;
+	static GameScreen gameScreen;
 	static boolean printTime2 = true;
 	static int count=0;
 	
