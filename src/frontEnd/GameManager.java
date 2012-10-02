@@ -67,6 +67,9 @@ public class GameManager {
 	}
 	
 	public void processMotion(Point startPoint, Point endPoint) {
+		
+		
+		//TODO: refactor this to use just point
 		double startX = startPoint.getX();
 		double startY = startPoint.getY();
 		double endX = endPoint.getX();
