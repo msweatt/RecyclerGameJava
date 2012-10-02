@@ -12,6 +12,7 @@ import frontEnd.Item;
 import frontEnd.Scheduler;
 import util.Direction;
 import util.GameConstants;
+import util.LoggerConstants;
 
 
 public class GameManager {
@@ -49,34 +50,57 @@ public class GameManager {
 		bins.add(bin);
 	}
 	
+	private void binTracking(Item item){
+		int x = item.getX();
+		int y = item.getY();
+		//This section of code will not be placed here... this is only for testing//
+				if ( (y >= 0) && (y <200) ) {
+					
+					if( LoggerConstants.isFine() ) _log.fine("Box was pushed into bin one.");
+				}
+				if ( (y >= 200) && (y <400) ) {
+					
+					if( LoggerConstants.isFine() ) _log.info("Box was pushed into bin two");
+				}
+		//-----------------------------------------------------------------------//
+	}
+	
 	public void processMotion(int startX, int endX, int startY, int endY) {
-		_log.info("Processing motion...");
+		if( LoggerConstants.isInfo() ) _log.info("Processing motion...");
 		int x, y;
 		for(Item i : items)
 		{
 			y = i.getY() + (i.getHeight() / 2);
+			
 			if(startY > y && startY < y + i.getHeight()){
+				
 				x = i.getX();
-				_log.info("itemX=" + x);
+				if( LoggerConstants.isFine() ) _log.fine("itemX=" + x);
+				
 				if(x > startX && x < endX)
 				{
-					_log.info("Moving Right!");
+					if( LoggerConstants.isFine() ) _log.fine("Moving Right!");
 					i.update(i.getX() + 100, i.getY());
+					binTracking(i);
 					screen.repaint();
 				}
 				if(x < startX && x > endX)
 				{
-					_log.info("Moving Left!");
+					if( LoggerConstants.isFine() ) _log.fine("Moving Left!");
 					i.update(i.getX() - 100, i.getY());
+					binTracking(i);
 					screen.repaint();
 				}
-			}else 
-				_log.info("Y not in box.");
+				
+				
+			}else{
+				if( LoggerConstants.isSevere() ) _log.severe("Y not in box.");
+			}
 		}
 	}
 	
 	public static void update() {
-		_log.info("GameManager Update");
+		if( LoggerConstants.isFinest() ) _log.finest("GameManager Update");
 		
 		for (int i = 0; i < items.size(); i++) {
 			items.get(i).update();

@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.logging.Logger;
 
+import util.LoggerConstants;
+
 public class MouseMotionDetector implements MouseListener, MotionDetector {
 	
 	private final static Logger _log = Logger.getLogger(MouseMotionDetector.class.getName());
@@ -50,7 +52,7 @@ public class MouseMotionDetector implements MouseListener, MotionDetector {
 		endX = arg0.getX();
 		endY = arg0.getY();
 		
-		_log.info("Sending " + startX + " " + endX + " " + startY + " " + endY);
+		if( LoggerConstants.isFine() ) _log.fine("Sending " + startX + " " + endX + " " + startY + " " + endY);
 		
 		screen.processMotion(startX, endX, startY, endY);
 		

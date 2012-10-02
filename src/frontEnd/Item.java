@@ -3,6 +3,7 @@ package frontEnd;
 import java.util.logging.Logger;
 
 import util.GameConstants;
+import util.LoggerConstants;
 
 public class Item {
 	
@@ -30,10 +31,10 @@ public class Item {
 		//_log.info("maxX="+maxX);
 		//_log.info("minY="+minY);
 		//_log.info("maxY="+maxY);
-		_log.info("x="+x);
-		_log.info("y="+y);
-		_log.info("width="+this.width);
-		_log.info("height="+this.height);
+		if( LoggerConstants.isFine() ) _log.fine("x="+x);
+		if( LoggerConstants.isFine() ) _log.fine("y="+y);
+		if( LoggerConstants.isFine() ) _log.fine("width="+this.width);
+		if( LoggerConstants.isFine() ) _log.fine("height="+this.height);
 	}
 	
 	public int getX() {
@@ -58,7 +59,8 @@ public class Item {
 	
 	public void update(){
 		y = y + GameConstants.ITEM_MOVE_Y;
-		_log.info("y="+y);
+		if( LoggerConstants.isFine() ) _log.fine("y="+y);
+		
 	}
 	
 	public void update(int x, int y){
