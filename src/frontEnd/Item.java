@@ -9,7 +9,7 @@ public class Item {
 	
 	private final static Logger _log = Logger.getLogger(Item.class.getName());
 	
-	private int x,y;
+	private int xCoord,y;
 	private int height,width;
 	private int image;
 	
@@ -23,7 +23,7 @@ public class Item {
 	public Item(){
 		this.width=GameConstants.ITEM_WIDTH;
 		this.height=GameConstants.ITEM_HEIGHT;
-		this.x=GameConstants.ITEM_START_X_POS;
+		this.xCoord=GameConstants.ITEM_START_X_POS;
 		this.y=GameConstants.ITEM_START_Y_POS;
 		
 		
@@ -31,14 +31,14 @@ public class Item {
 		//_log.info("maxX="+maxX);
 		//_log.info("minY="+minY);
 		//_log.info("maxY="+maxY);
-		if( LoggerConstants.isFine() ) _log.fine("x="+x);
+		if( LoggerConstants.isFine() ) _log.fine("x="+xCoord);
 		if( LoggerConstants.isFine() ) _log.fine("y="+y);
 		if( LoggerConstants.isFine() ) _log.fine("width="+this.width);
 		if( LoggerConstants.isFine() ) _log.fine("height="+this.height);
 	}
 	
 	public int getX() {
-		return x;
+		return xCoord;
 	}
 	
 	public int getY() {
@@ -64,7 +64,7 @@ public class Item {
 	}
 	
 	public void update(int x, int y){
-		this.x = x;
+		this.xCoord = x;
 		this.y = y;
 	}
 	
