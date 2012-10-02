@@ -22,5 +22,5 @@ public class GameConstants
 	public static final int CONVEYOR_START_SPEED = 5;
 	public static final int CONVEYOR_START_POS = 0;
 	public static final int CONVEYOR_END_POS = 400;
-	
+	public static final int NEW_ITEM_THRESHOLD = 100;
 }

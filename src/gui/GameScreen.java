@@ -16,7 +16,6 @@ import frontEnd.Item;
 public class GameScreen extends JFrame {
 	
 	private final static Logger _log = Logger.getLogger(GameScreen.class.getName());
-	
 	private GameManager game;
 	
 	public GameScreen(GameManager game, ScoreBoard scoreBoard) {
@@ -30,8 +29,7 @@ public class GameScreen extends JFrame {
 	        }
 	      });
 	    this.addMouseListener(new MouseMotionDetector(this));
-	    this.add(scoreBoard);
-	    
+	    this.add(scoreBoard);   
 	}
 	
 	public void processMotion(int startX, int endX, int startY, int endY) {
@@ -43,6 +41,4 @@ public class GameScreen extends JFrame {
 	    this.add(new PaintableItem(item));
 	}
 	
-	
-
 }

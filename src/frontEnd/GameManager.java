@@ -51,13 +51,13 @@ public class GameManager {
 	
 	public void processMotion(int startX, int endX, int startY, int endY) {
 		_log.info("Processing motion...");
-		int x,y;
+		int x, y;
 		for(Item i : items)
 		{
-			y = i.getY()+(i.getHeight()/2);
-			if(startY>y && startY<y+i.getHeight()){
+			y = i.getY() + (i.getHeight() / 2);
+			if(startY > y && startY < y + i.getHeight()){
 				x = i.getX();
-				_log.info("itemX="+x);
+				_log.info("itemX=" + x);
 				if(x > startX && x < endX)
 				{
 					_log.info("Moving Right!");
@@ -67,7 +67,7 @@ public class GameManager {
 				if(x < startX && x > endX)
 				{
 					_log.info("Moving Left!");
-					i.update(i.getX() - 100,i.getY());
+					i.update(i.getX() - 100, i.getY());
 					screen.repaint();
 				}
 			}else 
@@ -77,9 +77,11 @@ public class GameManager {
 	
 	public static void update() {
 		_log.info("GameManager Update");
-		items.get(0).update();
-		screen.repaint();
 		
+		for (int i = 0; i < items.size(); i++) {
+			items.get(i).update();
+		}
+		screen.repaint();
 	}
 	
 	public static void main(String[] args) {
@@ -87,28 +89,32 @@ public class GameManager {
 		
 		MotionDetector detector = new MouseMotionDetector(screen);
 		
+		// adds the initial item
 		game.addItem(new Item());
-		
 		screen.setVisible(true);
 		screen.repaint();
 		
-		 
-		int count=0;
-		int yPos=0;
-		while(yPos<GameConstants.CONVEYOR_END_POS && items.get(0).getX()==GameConstants.ITEM_START_X_POS){
+		// initially gives the player a score of 5 so that we can count down
+		game.scoreKeeper.addPoints(5);
+		
+		while (game.scoreKeeper.getScore() > 0) {
 			screen.repaint();
 			scheduler.update();
-			count++;
-			yPos=items.get(0).getY();
-		}
-		_log.info("x="+items.get(0).getX());
-		_log.info("x="+items.get(0).getY());
 		
-		if(items.get(0).getX()!=GameConstants.ITEM_START_X_POS)
-			_log.info("You win!");
-		if(items.get(0).getY()>=400)
-			_log.info("You lose..");
+			int yPos = items.get(items.size() - 1).getY();
 			
+			// if the newest item is past the 100 down y position create a new item
+			if (yPos >= GameConstants.NEW_ITEM_THRESHOLD) {
+				game.addItem(new Item());
+				screen.setVisible(true);
+			}
+			
+			// if an item is in the bin (past the line) remove it from the array and decrement the score
+			if (items.get(0).getY() >= 400) {
+				items.remove(0);
+				game.scoreKeeper.addPoints(-1);
+			}
+		}
 	}
 	
 }

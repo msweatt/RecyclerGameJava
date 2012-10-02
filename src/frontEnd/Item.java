@@ -8,7 +8,7 @@ public class Item {
 	
 	private final static Logger _log = Logger.getLogger(Item.class.getName());
 	
-	private static int x,y;
+	private int x,y;
 	private int height,width;
 	private int image;
 	
@@ -17,6 +17,7 @@ public class Item {
 		this.height = height;
 		this.width = width;
 	}
+	
 	//public Item(int minX,int maxX,int minY,int maxY){
 	public Item(){
 		this.width=GameConstants.ITEM_WIDTH;
@@ -55,8 +56,8 @@ public class Item {
 		
 	}
 	
-	public static void update(){
-		y=y+GameConstants.ITEM_MOVE_Y;
+	public void update(){
+		y = y + GameConstants.ITEM_MOVE_Y;
 		_log.info("y="+y);
 	}
 	

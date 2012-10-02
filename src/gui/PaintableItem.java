@@ -10,14 +10,18 @@ import util.GameConstants;
 import frontEnd.Arm;
 import frontEnd.Item;
 
+// TODO:
+// 	refactor this class to not be a JPanel - drawing multiple JPanels is not the way to go
+
 public class PaintableItem extends JPanel {
 	
 	private final static Logger _log = Logger.getLogger(PaintableItem.class.getName());
-	
 	private Item item;
 	
 	public PaintableItem(Item item) {
 		this.item = item;
+		this.setSize(item.getWidth(), item.getHeight());
+		this.setBackground(new Color(0, 0, 0, 0));
 	}
 
 	public void paintComponent(Graphics g) {

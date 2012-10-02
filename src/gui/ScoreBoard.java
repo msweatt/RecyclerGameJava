@@ -18,15 +18,17 @@ import frontEnd.ScoreKeeper;
  */
 @SuppressWarnings("serial")
 public class ScoreBoard extends JPanel implements ScoreChangedListener {
+	
 	ScoreKeeper scoreKeeper;
 	JLabel playerName;
 	JLabel scoreLabel;
+	
 	public ScoreBoard(ScoreKeeper scoreKeeper) {
 		this.scoreKeeper= scoreKeeper;
 		this.scoreKeeper.addScoreChangedListener(this);
 		this.setLayout(new FlowLayout());
 		this.setSize(new Dimension(100,20));
-		playerName = new JLabel(scoreKeeper.getName()+":");
+		playerName = new JLabel(scoreKeeper.getName() + ":");
 		scoreLabel = new JLabel(Integer.toString(scoreKeeper.getScore()));
 		
 		this.add(playerName);
@@ -37,6 +39,5 @@ public class ScoreBoard extends JPanel implements ScoreChangedListener {
 	public void scoreUpdated(int score) {
 		scoreLabel.setText(Integer.toString(score));
 	}
-
 
 }
