@@ -85,7 +85,7 @@ public class GameManager {
 		 
 		int count=0;
 		int yPos=0;
-		while(yPos<400 && items.get(0).getX()==Global.itemStartX){
+		while(yPos<Global.conveyerEndPosition && items.get(0).getX()==Global.itemStartX){
 			screen.repaint();
 			scheduler.update();
 			count++;

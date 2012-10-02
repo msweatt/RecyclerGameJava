@@ -20,5 +20,7 @@ public class Global {
 	public static final int delay = 250;
 	
 	public static final int conveyerStartSpeed = 5;
+	public static final int conveyerStartPosition = 0;
+	public static final int conveyerEndPosition = 400;
 	
 }
